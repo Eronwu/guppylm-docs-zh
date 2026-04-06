@@ -2,112 +2,117 @@
   <img src="assets/guppy.png" alt="GuppyLM" width="400"/>
 </p>
 
-<h1 align="center">GuppyLM</h1>
-<p align="center"><em>A ~9M parameter LLM that talks like a small fish.</em></p>
+<h1 align="center">GuppyLM — 中文文档版</h1>
+<p align="center"><em>一个约 9M 参数、像小鱼一样说话的 LLM</em></p>
 
 <p align="center">
-  <a href="https://huggingface.co/datasets/arman-bd/guppylm-60k-generic"><img src="https://img.shields.io/badge/🤗_Dataset-guppylm--60k-blue" alt="Dataset"/></a>&nbsp;
-  <a href="https://huggingface.co/arman-bd/guppylm-9M"><img src="https://img.shields.io/badge/🤗_Model-guppylm--9M-orange" alt="Model"/></a>&nbsp;
-  <a href="https://github.com/arman-bd/guppylm/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green" alt="License"/></a>
+  <a href="https://huggingface.co/datasets/arman-bd/guppylm-60k-generic"><img src="https://img.shields.io/badge/🤗_数据集-guppylm--60k-blue" alt="Dataset"/></a>&nbsp;
+  <a href="https://huggingface.co/arman-bd/guppylm-9M"><img src="https://img.shields.io/badge/🤗_模型-guppylm--9M-orange" alt="Model"/></a>&nbsp;
+  <a href="https://github.com/arman-bd/guppylm/blob/main/LICENSE"><img src="https://img.shields.io/badge/协议-MIT-green" alt="License"/></a>
   <br/>
-  <a href="https://colab.research.google.com/github/arman-bd/guppylm/blob/main/train_guppylm.ipynb"><img src="https://img.shields.io/badge/Train_in-Colab-F9AB00?logo=googlecolab" alt="Train"/></a>&nbsp;
-  <a href="https://colab.research.google.com/github/arman-bd/guppylm/blob/main/use_guppylm.ipynb"><img src="https://img.shields.io/badge/Chat_in-Colab-F9AB00?logo=googlecolab" alt="Chat"/></a>
+  <a href="https://colab.research.google.com/github/arman-bd/guppylm/blob/main/train_guppylm.ipynb"><img src="https://img.shields.io/badge/Colab_训练-F9AB00?logo=googlecolab" alt="Train"/></a>&nbsp;
+  <a href="https://colab.research.google.com/github/arman-bd/guppylm/blob/main/use_guppylm.ipynb"><img src="https://img.shields.io/badge/Colab_聊天-F9AB00?logo=googlecolab" alt="Chat"/></a>
   <br/>
-  <a href="https://www.linkedin.com/pulse/build-your-own-language-model-5-minutes-i-made-mine-hossain--supif/"><img src="https://img.shields.io/badge/Article-LinkedIn-0A66C2?logo=linkedin" alt="LinkedIn Article"/></a>&nbsp;
-  <a href="https://arman-bd.medium.com/build-your-own-llm-in-5-minutes-i-made-mine-talk-like-a-fish-e20c338a3d14"><img src="https://img.shields.io/badge/Article-Medium-000000?logo=medium" alt="Medium Article"/></a>
+  <a href="README.en.md"><img src="https://img.shields.io/badge/📄_English_Original-README-blue" alt="English README"/></a>
 </p>
 
 ---
 
-> **This project exists to show that training your own language model is not magic.**
-> No PhD required. No massive GPU cluster. One Colab notebook, 5 minutes, and you have a working LLM that you built from scratch — data generation, tokenizer, model architecture, training loop, and inference. If you can run a notebook, you can train a language model.
+> **这个项目存在的意义：证明训练自己的语言模型并不神秘。**
+> 不需要博士学位，不需要庞大的 GPU 集群。一个 Colab 笔记本，5 分钟，你就能从零构建一个完整的 LLM — 数据生成、分词器、模型架构、训练循环、推理。只要你能运行笔记本，你就能训练一个语言模型。
 >
-> It won't produce a billion-parameter model that writes essays. But it will show you exactly how every piece works — from raw text to trained weights to generated output — so the big models stop feeling like black boxes.
+> 它不会产出能写文章的十亿参数模型。但它会让你看清每一个部件是如何工作的 — 从原始文本到训练权重再到生成输出 — 让大模型不再是一个黑盒。
 
 ---
 
 ```
-You> hi guppy
+你> hi guppy
 Guppy> hi there. i just found a nice spot near the rock. the temperature feels nice.
 
-You> are you hungry
+你> are you hungry
 Guppy> yes. always yes. i will swim to the top right now. i promise to eat all of it.
 
-You> do you like bubbles
+你> do you like bubbles
 Guppy> i love bubbles. they make the water feel slightly different.
 
-You> what is the meaning of life
+你> what is the meaning of life
 Guppy> food. the answer is always food.
 
-You> tell me a joke
+你> tell me a joke
 Guppy> what did the fish say when it hit the wall. dam.
 
-You> do you love me
+你> do you love me
 Guppy> you're my favorite big shape. my mouth are happy when you're here.
 
-You> goodnight guppy
+你> goodnight guppy
 Guppy> ok sleep time. i was following a bubble but now i'll stop. goodnight tank. goodnight water.
 ```
 
 ---
 
-## What is GuppyLM?
+## 快速导航
 
-GuppyLM is a tiny language model that pretends to be a fish named Guppy. It speaks in short, lowercase sentences about water, food, light, and tank life. It doesn't understand human abstractions like money, phones, or politics — and it's not trying to.
-
-It's trained from scratch on 60K synthetic conversations across 60 topics, runs on a single GPU in ~5 minutes, and produces a model small enough to run in a browser.
-
----
-
-## Architecture
-
-| | |
+| 文档 | 说明 |
 |---|---|
-| **Parameters** | 8.7M |
-| **Layers** | 6 |
-| **Hidden dim** | 384 |
-| **Heads** | 6 |
+| [📖 环境搭建指南](docs/setup-guide.md) | 从零搭建环境、下载模型、开始聊天 |
+| [🧠 源码逐行拆解](docs/model-tutorial.md) | config → model → Attention → dataset，完整教学 |
+| [📄 英文原版 README](README.en.md) | 原始项目说明 |
+
+---
+
+## GuppyLM 是什么？
+
+GuppyLM 是一个微型语言模型，假装自己叫 Guppy 的小鱼。它用简短的小写句子聊水、食物、光线和鱼缸生活。它不理解金钱、手机、政治等人类抽象概念 — 它也不想理解。
+
+它在 60 个主题的 60K 条合成对话上从零训练，单 GPU 约 5 分钟跑完，模型小到可以在浏览器里运行。
+
+## 架构
+
+| 指标 | 值 |
+|---|---|
+| **参数量** | 8.7M |
+| **层数** | 6 |
+| **隐藏维度** | 384 |
+| **注意力头数** | 6 |
 | **FFN** | 768 (ReLU) |
-| **Vocab** | 4,096 (BPE) |
-| **Max sequence** | 128 tokens |
-| **Norm** | LayerNorm |
-| **Position** | Learned embeddings |
-| **LM head** | Weight-tied with embeddings |
+| **词表** | 4,096 (BPE) |
+| **最大序列** | 128 tokens |
+| **归一化** | LayerNorm |
+| **位置编码** | 可学习嵌入 |
+| **LM Head** | 与词嵌入权重共享 |
 
-Vanilla transformer. No GQA, no RoPE, no SwiGLU, no early exit. As simple as it gets.
+Vanilla transformer。没有 GQA，没有 RoPE，没有 SwiGLU，没有提前退出。简单到极致。
 
----
+## 性格
 
-## Personality
+Guppy：
+- 用简短的小写句子说话
+- 通过水、温度、光线、振动和食物来感知世界
+- 不理解人类抽象概念
+- 友好、好奇、有点笨
+- 经常想着食物
 
-Guppy:
-- Speaks in short, lowercase sentences
-- Experiences the world through water, temperature, light, vibrations, and food
-- Doesn't understand human abstractions
-- Is friendly, curious, and a little dumb
-- Thinks about food a lot
-
-**60 topics:** greetings, feelings, temperature, food, light, water, tank, noise, night, loneliness, bubbles, glass, reflection, breathing, swimming, colors, taste, plants, filter, algae, snails, scared, excited, bored, curious, happy, tired, outside, cats, rain, seasons, music, visitors, children, meaning of life, time, memory, dreams, size, future, past, name, weather, sleep, friends, jokes, fear, love, age, intelligence, health, singing, TV, and more.
+**60 个主题：** 问候、感受、温度、食物、光线、水、鱼缸、噪音、夜晚、孤独、气泡、玻璃、倒影、呼吸、游泳、颜色、味道、植物、过滤器、藻类、蜗牛、害怕、兴奋、无聊、好奇、快乐、疲惫、外面、猫、雨、季节、音乐、访客、孩子、生命意义、时间、记忆、梦想、大小、未来、过去、名字、天气、睡觉、朋友、笑话、恐惧、爱、年龄、智力、健康、唱歌、电视等等。
 
 ---
 
-## Quick Start
+## 快速开始
 
-### Chat with Guppy (no training needed)
+### 和 Guppy 聊天（无需训练）
 
-[![Open in Colab](https://img.shields.io/badge/Chat_in-Colab-F9AB00?logo=googlecolab)](https://colab.research.google.com/github/arman-bd/guppylm/blob/main/use_guppylm.ipynb)
+[![在 Colab 中打开](https://img.shields.io/badge/Colab_聊天-F9AB00?logo=googlecolab)](https://colab.research.google.com/github/arman-bd/guppylm/blob/main/use_guppylm.ipynb)
 
-Downloads the pre-trained model from HuggingFace and lets you chat. Just run all cells.
+从 HuggingFace 下载预训练模型，直接聊天。运行所有 cell 即可。
 
-### Train your own
+### 自己训练
 
-[![Open in Colab](https://img.shields.io/badge/Train_in-Colab-F9AB00?logo=googlecolab)](https://colab.research.google.com/github/arman-bd/guppylm/blob/main/train_guppylm.ipynb)
+[![在 Colab 中打开](https://img.shields.io/badge/Colab_训练-F9AB00?logo=googlecolab)](https://colab.research.google.com/github/arman-bd/guppylm/blob/main/train_guppylm.ipynb)
 
-1. Set runtime to **T4 GPU**
-2. **Run all cells** — downloads dataset, trains tokenizer, trains model, tests it
-3. Upload to HuggingFace or download locally
+1. 设置运行环境为 **T4 GPU**
+2. **运行所有 cell** — 下载数据集、训练分词器、训练模型、测试
+3. 上传到 HuggingFace 或本地下载
 
-### Chat locally
+### 本地聊天
 
 ```bash
 pip install torch tokenizers
@@ -115,25 +120,27 @@ python -m guppylm chat
 ```
 
 ```
-You> the cat is looking at you
+你> the cat is looking at you
 Guppy> i hide behind the plant when the furry one comes.
 
-You> it is raining outside
+你> it is raining outside
 Guppy> i think rain is the best thing about outside.
 ```
 
+详细的环境搭建步骤请参考：[📖 环境搭建指南](docs/setup-guide.md)
+
 ---
 
-## Dataset
+## 数据集
 
-**[arman-bd/guppylm-60k-generic](https://huggingface.co/datasets/arman-bd/guppylm-60k-generic)** on HuggingFace.
+**[arman-bd/guppylm-60k-generic](https://huggingface.co/datasets/arman-bd/guppylm-60k-generic)** 在 HuggingFace 上。
 
-| | |
+| 指标 | 值 |
 |---|---|
-| Samples | 60,000 (57K train / 3K test) |
-| Format | `{"input": "...", "output": "...", "category": "..."}` |
-| Categories | 60 |
-| Generation | Synthetic template composition |
+| 样本数 | 60,000（57K 训练 / 3K 测试） |
+| 格式 | `{"input": "...", "output": "...", "category": "..."}` |
+| 主题 | 60 个 |
+| 生成方式 | 合成模板组合 |
 
 ```python
 from datasets import load_dataset
@@ -144,36 +151,45 @@ print(ds["train"][0])
 
 ---
 
-## Project Structure
+## 项目结构
 
 ```
 guppylm/
-├── config.py               Hyperparameters (model + training)
+├── config.py               超参数（模型 + 训练）
 ├── model.py                Vanilla transformer
-├── dataset.py              Data loading + batching
-├── train.py                Training loop (cosine LR, AMP)
-├── generate_data.py        Conversation data generator (60 topics)
-├── eval_cases.py           Held-out test cases
-├── prepare_data.py         Data prep + tokenizer training
-└── inference.py            Chat interface
+├── dataset.py              数据加载 + 批处理
+├── train.py                训练循环（cosine LR, AMP）
+├── generate_data.py        对话数据生成器（60 个主题）
+├── eval_cases.py           保留测试用例
+├── prepare_data.py         数据准备 + 分词器训练
+└── inference.py            聊天界面
 
 tools/
-├── make_colab.py           Generates guppy_colab.ipynb
-├── export_dataset.py       Push dataset to HuggingFace
-└── dataset_card.md         HuggingFace dataset README
+├── make_colab.py           生成 guppy_colab.ipynb
+├── export_dataset.py       推送数据集到 HuggingFace
+└── dataset_card.md         HuggingFace 数据集 README
 ```
 
 ---
 
-## Design Decisions
+## 设计决策
 
-**Why no system prompt?** Every training sample had the same one. A 9M model can't conditionally follow instructions — the personality is baked into the weights. Removing it saves ~60 tokens per inference.
+**为什么没有 system prompt？** 每个训练样本都有相同的 system prompt。9M 模型无法有条件地遵循指令 — 性格已经固化在权重里了。去掉它每次推理省约 60 个 token。
 
-**Why single-turn only?** Multi-turn degraded at turn 3-4 due to the 128-token context window. A fish that forgets is on-brand, but garbled output isn't. Single-turn is reliable.
+**为什么只支持单轮对话？** 由于 128 token 上下文窗口限制，多轮对话在第 3-4 轮会退化。一条健忘的鱼符合人设，但输出混乱就不行了。单轮更可靠。
 
-**Why vanilla transformer?** GQA, SwiGLU, RoPE, and early exit add complexity that doesn't help at 9M params. Standard attention + ReLU FFN + LayerNorm produces the same quality with simpler code.
+**为什么用 vanilla transformer？** GQA、SwiGLU、RoPE 和提前退出增加了复杂度，但在 9M 参数下没有帮助。标准注意力 + ReLU FFN + LayerNorm 用更简单的代码产生相同的质量。
 
-**Why synthetic data?** A fish character with consistent personality needs consistent training data. Template composition with randomized components (30 tank objects, 17 food types, 25 activities) generates ~16K unique outputs from ~60 templates.
+**为什么用合成数据？** 一个有固定性格的鱼角色需要一致的训练数据。模板组合加随机组件（30 个鱼缸物品、17 种食物、25 种活动）从约 60 个模板生成约 16K 种独特输出。
+
+---
+
+## 学习路径
+
+本项目额外提供了中文学习文档，帮助你深入理解源码：
+
+1. **[📖 环境搭建指南](docs/setup-guide.md)** — 从零搭建环境、下载模型、开始聊天的完整步骤
+2. **[🧠 源码逐行拆解](docs/model-tutorial.md)** — config、model、Attention、dataset 的详细教学
 
 ---
 
