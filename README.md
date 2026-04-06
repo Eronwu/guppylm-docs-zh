@@ -168,6 +168,17 @@ tools/
 ├── make_colab.py           生成 guppy_colab.ipynb
 ├── export_dataset.py       推送数据集到 HuggingFace
 └── dataset_card.md         HuggingFace 数据集 README
+
+docs/                       ← 中文学习文档（本项目新增）
+├── setup-guide.md          环境搭建与聊天指南
+├── model-tutorial.md       源码逐行拆解教程
+└── annotated/              带中文注释的源码副本
+    ├── config.py
+    ├── model.py
+    ├── dataset.py
+    ├── train.py
+    ├── inference.py
+    └── generate_data.py
 ```
 
 ---
@@ -190,6 +201,7 @@ tools/
 
 1. **[📖 环境搭建指南](docs/setup-guide.md)** — 从零搭建环境、下载模型、开始聊天的完整步骤
 2. **[🧠 源码逐行拆解](docs/model-tutorial.md)** — config、model、Attention、dataset 的详细教学
+3. **[💻 带注释的源码](docs/annotated/)** — 每个核心文件的逐行中文注释版本，对照原始代码学习
 
 ---
 
